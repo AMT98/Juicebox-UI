@@ -13,5 +13,3 @@ export const fetchAllUsers = async () => {
   const json = await res.json();
   return json;
 };
-
-// fetch register
