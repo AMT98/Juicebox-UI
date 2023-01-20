@@ -13,3 +13,21 @@ export const fetchAllUsers = async () => {
   const json = await res.json();
   return json;
 };
+
+// register user
+export const fetchRegister = async (username, password, name, location) => {
+  const res = await fetch(`${APIURL}/users/register`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      username: `${username}`,
+      password: `${password}`,
+      name: `${name}`,
+      location: `${location}`,
+    }),
+  });
+  const json = await res.json();
+  return json;
+};
