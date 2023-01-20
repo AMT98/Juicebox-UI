@@ -14,6 +14,13 @@ export const fetchAllUsers = async () => {
   return json;
 };
 
+// get post by tags
+export const fetchPostByTags = async (tagName) => {
+  const res = await fetch(`${APIURL}/tags/${tagName}/posts`);
+  const json = res.json();
+  return json;
+};
+
 // register user
 export const fetchRegister = async (username, password, name, location) => {
   const res = await fetch(`${APIURL}/users/register`, {
@@ -75,6 +82,60 @@ export const fetchAddPost = async (token, title, content, tags) => {
         tags: `${tags}`,
       },
     }),
+  });
+  const json = await res.json();
+  return json;
+};
+
+// edit post
+export const fetchEditPost = async (token, postID, title, content, tags) => {
+  const res = await fetch(`${APIURL}/posts/${postID}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      title: `${title}`,
+      content: `${content}`,
+      tags: `${tags}`,
+    }),
+  });
+  const json = await res.json();
+  return json;
+};
+
+// delete/deactivate post
+export const fetchDeletePost = async (token, postID) => {
+  const res = await fetch(`${APIURL}/posts/${postID}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const json = await res.json();
+  return json;
+};
+
+// delete/deactivate user
+export const fetchDeleteUser = async (token, userID) => {
+  const res = await fetch(`${APIURL}/users/${userID}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const json = await res.json();
+  return json;
+};
+
+// activate user
+export const fetchActivateUser = async (token, userID) => {
+  const res = await fetch(`${APIURL}/users/${userID}`, {
+    method: 'PATCH',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   });
   const json = await res.json();
   return json;
