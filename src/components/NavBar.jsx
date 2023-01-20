@@ -22,7 +22,7 @@ const NavBar = () => {
 
   return (
     <div>
-    <Navbar expand={"xl"}>
+    <Navbar expand={"xl"} className= "header">
       <NavbarBrand className="headerTitle">
         JuiceBox
       </NavbarBrand>
@@ -31,12 +31,14 @@ const NavBar = () => {
         <Nav className="me-auto" navbar></Nav>
         <NavItem>
           <NavLink
+          className="navLinks"
           >
             HOME
           </NavLink>
         </NavItem>
         <NavItem>
           <NavLink
+          className="navLinks"
           >
             POSTS
           </NavLink>
