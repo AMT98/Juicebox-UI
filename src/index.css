@@ -8,7 +8,7 @@
 .header{
   padding: 30px;
   display: flex;
-  background-color: rgb(240, 240, 240);
+  background-color: gray;
   color: black;
   align-items: center;
   justify-content:space-between;
