@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Routes, Route, Switch } from 'react-router-dom';
 import NavBar from './NavBar';
 import Register from './Register';
 import Login from './Login';
+import Home from './Home';
 
 const App = () => {
   return (
     <>
       <NavBar />
-      <Register />
-      {/* <Login /> */}
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
+      </Routes>
     </>
   );
 };
