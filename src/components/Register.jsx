@@ -39,45 +39,45 @@ const Register = () => {
                 </p>
                 <form onSubmit={handleSubmit}>
                   <div className='form-outline form-white mb-4'>
-                    <label className='form-label'>Username:</label>
                     <input
                       className='form-control form-control-lg'
                       type='text'
                       name='username'
                       value={username}
+                      placeholder='Username'
                       onChange={(e) => setUsername(e.target.value)}
                       required
                     />
                   </div>
                   <div className='form-outline form-white mb-4'>
-                    <label className='form-label'>Password:</label>
                     <input
                       className='form-control form-control-lg'
                       type='text'
                       name='password'
                       value={password}
+                      placeholder='Password'
                       onChange={(e) => setPassword(e.target.value)}
                       required
                     />
                   </div>
                   <div className='form-outline form-white mb-4'>
-                    <label className='form-label'>Name:</label>
                     <input
                       className='form-control form-control-lg'
                       type='text'
                       name='name'
                       value={name}
+                      placeholder='Name'
                       onChange={(e) => setName(e.target.value)}
                       required
                     />
                   </div>
                   <div className='form-outline form-white mb-4'>
-                    <label className='form-label'>Location:</label>
                     <input
                       className='form-control form-control-lg'
                       type='text'
                       name='location'
                       value={location}
+                      placeholder='Location'
                       onChange={(e) => setLocation(e.target.value)}
                       required
                     />
