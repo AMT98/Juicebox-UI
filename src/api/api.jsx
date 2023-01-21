@@ -1,8 +1,8 @@
 // API on Aswin's Server
-// const APIURL = 'https://juicebox-gu05.onrender.com/api';
+const APIURL = 'https://juicebox-gu05.onrender.com/api';
 
 // API on Vincent's Server
-const APIURL = 'https://juicebox-ywg0.onrender.com/api';
+// const APIURL = 'https://juicebox-ywg0.onrender.com/api';
 
 // fetch all posts
 export const fetchAllPosts = async () => {
