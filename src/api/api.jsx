@@ -1,8 +1,8 @@
 // API on Aswin's Server
-const APIURL = 'https://juicebox-gu05.onrender.com/api';
+// const APIURL = 'https://juicebox-gu05.onrender.com/api';
 
 // API on Vincent's Server
-// const APIURL = 'https://juicebox-ywg0.onrender.com/api';
+const APIURL = 'https://juicebox-ywg0.onrender.com/api';
 
 // fetch all posts
 export const fetchAllPosts = async () => {
@@ -56,6 +56,7 @@ export const fetchLogin = async (username, password) => {
     }),
   });
   const json = await res.json();
+  console.log(json)
   return json;
 };
 
@@ -75,10 +76,10 @@ export const fetchLoggedInUser = async (token) => {
 export const fetchAddPost = async (token, title, content, tags) => {
   const res = await fetch(`${APIURL}/posts`, {
     method: 'POST',
-    // headers: {
-    //   'Content-Type': 'application/json',
-    //   // Authorization: `Bearer ${token}`,
-    // },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNjc0MzI1NDAyLCJleHAiOjE2NzQ5MzAyMDJ9.YdgpLxSfsJUtM7N5oL61VOmuu5pFq2ipLrfjItninGg`,
+    },
     body: JSON.stringify({
       body: {
         title: `${title}`,

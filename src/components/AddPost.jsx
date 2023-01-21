@@ -18,7 +18,7 @@ const AddPost = () => {
         title,
         content,
         tags,
-        image
+        // image
       );
       console.log(res)
     }catch(error){
