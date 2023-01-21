@@ -10,10 +10,10 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-} from "reactstrap";
-import { getValue } from "@testing-library/user-event/dist/utils";
+} from 'reactstrap';
+import { getValue } from '@testing-library/user-event/dist/utils';
 
-import { NavLink} from "react-router-dom";
+import { NavLink, Link } from 'react-router-dom';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,43 +22,37 @@ const NavBar = () => {
 
   return (
     <div>
-    <Navbar expand={"xl"} className= "header">
-      <NavbarBrand className="headerTitle">
-        JuiceBox
-      </NavbarBrand>
-      <NavbarToggler onClick={toggle} />
-      <Collapse isOpen={isOpen} navbar>
-        <Nav className="me-auto" navbar></Nav>
-        <NavItem>
-          <NavLink
-          className="navLinks"
-          >
-            HOME
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-          className="navLinks"
-          >
-            POSTS
-          </NavLink>
-        </NavItem>
+      <Navbar expand={'xl'} className='header'>
+        <NavbarBrand className='headerTitle'>JuiceBox</NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className='me-auto' navbar></Nav>
+          <NavItem>
+            <NavLink className='navLinks'>HOME</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink className='navLinks'>POSTS</NavLink>
+          </NavItem>
 
-        <UncontrolledDropdown nav inNavbar className="profileNav">
-          <DropdownToggle nav caret>
-            PROFILE
-          </DropdownToggle>
-          <DropdownMenu start={getValue.toString()}>
-            <>
-              <DropdownItem>Log In</DropdownItem>
-              <DropdownItem>Sign Up</DropdownItem>
-            </>
-          </DropdownMenu>
-        </UncontrolledDropdown>
-      </Collapse>
-    </Navbar>
-  </div>
+          <UncontrolledDropdown nav inNavbar className='profileNav'>
+            <DropdownToggle nav caret>
+              PROFILE
+            </DropdownToggle>
+            <DropdownMenu start={getValue.toString()}>
+              <>
+                <DropdownItem>
+                  <Link to='/login'>Log In</Link>
+                </DropdownItem>
+                <DropdownItem>
+                  <Link to='/register'>Sign Up</Link>
+                </DropdownItem>
+              </>
+            </DropdownMenu>
+          </UncontrolledDropdown>
+        </Collapse>
+      </Navbar>
+    </div>
   );
-}
+};
 
 export default NavBar;
