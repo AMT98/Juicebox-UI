@@ -90,7 +90,7 @@ const Register = () => {
                       Create Account
                     </button>
                   </span>
-                  <p>{errorMessage}</p>
+                  <p className='my-2 text-danger'>{errorMessage}</p>
                 </form>
                 <div>
                   <p className='mb-0'>

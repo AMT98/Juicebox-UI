@@ -56,13 +56,13 @@ const Login = () => {
                     </div>
                     <span>
                       <button
-                        className='btn btn-outline-light btn-lg px-5'
+                        className='btn btn-outline-light btn-lg px-5 mb-1'
                         type='submit'
                       >
                         Login
                       </button>
                     </span>
-                    <p>{errorMessage}</p>
+                    <p className='my-2 text-danger'>{errorMessage}</p>
                   </form>
                   <div>
                     <p className='mb-0'>
