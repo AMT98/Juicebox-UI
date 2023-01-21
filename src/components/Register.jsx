@@ -19,7 +19,7 @@ const Register = () => {
     try {
       const register = await fetchRegister(username, password, name, location);
       if (!register.success) {
-        setErrorMessage(register.error.message);
+        setErrorMessage(register.message);
       }
     } catch (error) {
       console.error('error in register fetechregister', error);

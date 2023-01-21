@@ -14,7 +14,7 @@ const Login = () => {
     try {
       const login = await fetchLogin(username, password);
       if (!login.success) {
-        setErrorMessage(login.error.message);
+        setErrorMessage(login.message);
       }
     } catch (error) {
       console.error('error in login', error);
