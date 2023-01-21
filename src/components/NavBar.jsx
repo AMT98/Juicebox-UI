@@ -28,10 +28,14 @@ const NavBar = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className='me-auto' navbar></Nav>
           <NavItem>
-            <NavLink className='navLinks'>HOME</NavLink>
+            <NavLink className='navLinks' to='/'>
+              HOME
+            </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink className='navLinks'>POSTS</NavLink>
+            <NavLink className='navLinks' to='/posts'>
+              POSTS
+            </NavLink>
           </NavItem>
 
           <UncontrolledDropdown nav inNavbar className='profileNav'>
