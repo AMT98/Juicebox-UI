@@ -1,68 +1,69 @@
-import React, { useState } from "react";
-import { fetchAddPost } from "../api/api";
+import React, { useState } from 'react';
+import { fetchAddPost } from '../api/api';
 
 const AddPost = () => {
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
-  const [tags, setTags ] = useState('')
-  const [image, setImage ] = useState('')
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [tags, setTags] = useState('');
+  const [image, setImage] = useState('');
+
+  const token = localStorage.getItem('token');
+  console.log('token in addpost', token);
 
   const handleAddPost = async (e) => {
     e.preventDefault();
     setTitle('');
     setContent('');
     setTags('');
-    setImage('')
+    setImage('');
     try {
       const res = await fetchAddPost(
+        token,
         title,
         content,
-        tags,
+        tags
         // image
       );
-      console.log(res)
-    }catch(error){
+      console.log(res);
+    } catch (error) {
       console.log(error);
     }
-  }
-  return(
+  };
+  return (
     <form onSubmit={handleAddPost}>
       <label>
         title:
         <input
-        type='text'
-        name= 'title'
-        value = {title}
-        onChange= {(e) => setTitle(e.target.value)}
-        required
-        >
-        </input>
+          type='text'
+          name='title'
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        ></input>
       </label>
 
       <label>
         Content:
         <textarea
-        type='text'
-        name= 'content'
-        value = {content}
-        onChange= {(e) => setContent(e.target.value)}
-        required
-        >
-        </textarea>
+          type='text'
+          name='content'
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          required
+        ></textarea>
       </label>
 
       <label>
         Tags:
         <input
-        type='text'
-        name= 'tags'
-        value = {tags}
-        onChange= {(e) => setTags(e.target.value)}
-        required
-        >
-        </input>
+          type='text'
+          name='tags'
+          value={tags}
+          onChange={(e) => setTags(e.target.value)}
+          required
+        ></input>
       </label>
-{/* 
+      {/* 
       <label>
         Image:
         <textarea
@@ -75,12 +76,9 @@ const AddPost = () => {
         </textarea>
       </label> */}
 
-      <button
-      type="submit">
-        Create
-      </button>
+      <button type='submit'>Create</button>
     </form>
-  )
-}
+  );
+};
 
 export default AddPost;

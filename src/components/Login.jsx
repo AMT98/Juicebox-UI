@@ -15,7 +15,9 @@ const Login = () => {
     try {
       const login = await fetchLogin(username, password);
       if (!login.success) {
+        console.log(login.token);
         setErrorMessage(login.message);
+        localStorage.setItem('token', login.token);
       }
     } catch (error) {
       console.error('error in login', error);

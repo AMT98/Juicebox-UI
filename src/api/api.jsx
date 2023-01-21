@@ -56,7 +56,7 @@ export const fetchLogin = async (username, password) => {
     }),
   });
   const json = await res.json();
-  console.log(json)
+  console.log(json);
   return json;
 };
 
@@ -78,7 +78,7 @@ export const fetchAddPost = async (token, title, content, tags) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJ0ZXN0IiwiaWF0IjoxNjc0MzI1NDAyLCJleHAiOjE2NzQ5MzAyMDJ9.YdgpLxSfsJUtM7N5oL61VOmuu5pFq2ipLrfjItninGg`,
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       body: {
