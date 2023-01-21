@@ -5,6 +5,7 @@ import Register from './Register';
 import Login from './Login';
 import Home from './Home';
 import Posts from './Posts';
+import AddPost from './AddPost';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path='/posts' element={<Posts />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
+          <Route path= '/add' element= {<AddPost />}/>
         </Routes>
       </div>
       {/* footer */}
