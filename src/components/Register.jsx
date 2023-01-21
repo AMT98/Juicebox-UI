@@ -28,40 +28,54 @@ const Register = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label>Username:</label>
-        <input
-          type='text'
-          name='username'
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <label>Password:</label>
-        <input
-          type='text'
-          name='password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <label>Name:</label>
-        <input
-          type='text'
-          name='name'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <label>Location:</label>
-        <input
-          type='text'
-          name='location'
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          required
-        />
+        <div className='mb-3'>
+          <label className='form-label'>Username:</label>
+          <input
+            className='form-control'
+            type='text'
+            name='username'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
+        <div className='mb-3'>
+          <label className='form-label'>Password:</label>
+          <input
+            className='form-control'
+            type='text'
+            name='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div className='mb-3'>
+          <label className='form-label'>Name:</label>
+          <input
+            className='form-control'
+            type='text'
+            name='name'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+        <div className='mb-3'>
+          <label className='form-label'>Location:</label>
+          <input
+            className='form-control'
+            type='text'
+            name='location'
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            required
+          />
+        </div>
         <span>
-          <button type='submit'>Create Account</button>
+          <button className='btn btn-primary' type='submit'>
+            Create Account
+          </button>
         </span>
         <p>{errorMessage}</p>
       </form>

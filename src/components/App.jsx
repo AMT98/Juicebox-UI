@@ -8,12 +8,17 @@ import Home from './Home';
 const App = () => {
   return (
     <>
+      {/* navbar */}
       <NavBar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login />} />
-      </Routes>
+      {/* body */}
+      <div className='container'>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+        </Routes>
+      </div>
+      {/* footer */}
     </>
   );
 };

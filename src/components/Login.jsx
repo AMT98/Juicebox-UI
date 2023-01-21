@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { fetchLogin } from '../api/api';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -21,28 +22,63 @@ const Login = () => {
     }
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>Username:</label>
-        <input
-          type='text'
-          name='username'
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label>Password:</label>
-        <input
-          type='text'
-          name='password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <span>
-          <button type='submit'>Login</button>
-        </span>
-        <p>{errorMessage}</p>
-      </form>
-    </div>
+    <section className='vh-100'>
+      <div className='container py-5 h-100'>
+        <div className='row d-flex justify-content-center align-items-center h-100'>
+          <div className='col-12 col-md-8 col-lg-6 col-xl-5'>
+            <div className='card bg-dark text-white'>
+              <div className='card-body p-5 text-center'>
+                <div className='mb-3'>
+                  <h2 className='fw-bold mb-2 text-uppercase'>Juicebox</h2>
+                  <p className='text-white-50 mb-5'>
+                    Please enter your login and password!
+                  </p>
+                  <form onSubmit={handleSubmit}>
+                    <div className='form-outline form-white mb-4'>
+                      <label className='form-label'>Username:</label>
+                      <input
+                        className='form-control form-control-lg'
+                        type='text'
+                        name='username'
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                      />
+                    </div>
+                    <div className='form-outline form-white mb-4'>
+                      <label className='form-label'>Password:</label>
+                      <input
+                        className='form-control form-control-lg'
+                        type='password'
+                        name='password'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                    </div>
+                    <span>
+                      <button
+                        className='btn btn-outline-light btn-lg px-5'
+                        type='submit'
+                      >
+                        Login
+                      </button>
+                    </span>
+                    <p>{errorMessage}</p>
+                  </form>
+                  <div>
+                    <p className='mb-0'>
+                      Don't have an account?{' '}
+                      <Link className='text-white-50 fw-bold' to='/register'>
+                        Sign Up
+                      </Link>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
