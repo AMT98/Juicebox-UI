@@ -1,17 +1,16 @@
-
 * {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
 }
 
-.header{
+.header {
   padding: 30px;
   display: flex;
-  background-color: gray;
+  background-color: whitesmoke;
   color: black;
   align-items: center;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 
 .navLinks {
@@ -22,7 +21,6 @@
 .navLinks:hover {
   color: rgb(124, 114, 114);
 }
-li{
-
+li {
   list-style-type: none;
 }

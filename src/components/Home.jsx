@@ -5,7 +5,7 @@ const Home = () => {
     <section className='vh-100'>
       <div className='container py-5 h-100'>
         <div className='card mb-3 bg-dark text-white'>
-          <div className='row g-0'>
+          <div className='row g-0 justify-content-between align-items-center'>
             <div className='col-md-4'>
               <img
                 src='https://images.unsplash.com/photo-1673840278212-62435e35dc24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'

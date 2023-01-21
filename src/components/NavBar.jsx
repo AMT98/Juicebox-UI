@@ -13,7 +13,7 @@ import {
 } from 'reactstrap';
 import { getValue } from '@testing-library/user-event/dist/utils';
 
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +23,7 @@ const NavBar = () => {
   return (
     <div>
       <Navbar expand={'xl'} className='header'>
-        <NavbarBrand className='headerTitle'>JuiceBox</NavbarBrand>
+        <NavbarBrand className='headerTitle'>Juicebox</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className='me-auto' navbar></Nav>
@@ -45,10 +45,10 @@ const NavBar = () => {
             <DropdownMenu start={getValue.toString()}>
               <>
                 <DropdownItem>
-                  <Link to='/login'>Log In</Link>
+                  <NavLink to='/login'>Log In</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to='/register'>Sign Up</Link>
+                  <NavLink to='/register'>Sign Up</NavLink>
                 </DropdownItem>
               </>
             </DropdownMenu>
