@@ -4,6 +4,7 @@ import NavBar from './NavBar';
 import Register from './Register';
 import Login from './Login';
 import Home from './Home';
+import Posts from './Posts';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <div className='container'>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/posts' element={<Posts />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
         </Routes>
