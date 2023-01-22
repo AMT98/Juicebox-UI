@@ -81,11 +81,10 @@ export const fetchAddPost = async (token, title, content, tags) => {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-      body: {
         title: `${title}`,
         content: `${content}`,
         tags: `${tags}`,
-      },
+      
     }),
   });
   const json = await res.json();
