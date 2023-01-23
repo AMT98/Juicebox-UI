@@ -22,7 +22,7 @@ const Posts = () => {
 
   useEffect(() => {
     fetchPosts();
-  }, [token]);
+  }, []);
 
   return (
     <div className="min-vh-100">
@@ -120,8 +120,8 @@ const Posts = () => {
                           {token && (
                             <div className="m-3 editDeleteBtn ">
                               <DeletePost
-                                postID={post.id}
-                                token={token}
+                                JWTtoken={token}
+                                ID={post.id}
                               ></DeletePost>
                               <Edit
                                 JWTtoken={token}
@@ -137,16 +137,16 @@ const Posts = () => {
                           <hr></hr>
                           <br />
                           <div className="mx-3">
-                            <span class="material-symbols-outlined mx-5">
+                            <span className="material-symbols-outlined mx-5">
                               google_plus_reshare
                             </span>
-                            <span class="material-symbols-outlined mx-5">
+                            <span className="material-symbols-outlined mx-5">
                               maps_ugc
                             </span>
-                            <span class="material-symbols-outlined mx-5">
+                            <span className="material-symbols-outlined mx-5">
                               repeat
                             </span>
-                            <span class="material-symbols-outlined mx-5">
+                            <span className="material-symbols-outlined mx-5">
                               favorite
                             </span>
                           </div>

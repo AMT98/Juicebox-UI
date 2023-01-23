@@ -111,14 +111,18 @@ export const fetchEditPost = async (token, postID, title, content, tags) => {
 
 // delete/deactivate post
 export const fetchDeletePost = async (token, postID) => {
-  const res = await fetch(`${APIURL}/posts/${postID}`, {
+  try{const res = await fetch(`${APIURL}/posts/${postID}`, {
     method: 'DELETE',
     headers: {
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
   });
   const json = await res.json();
-  return json;
+  return json;}
+  catch(error){
+    console.log(error)
+  }
 };
 
 // delete/deactivate user

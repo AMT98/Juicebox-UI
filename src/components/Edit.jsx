@@ -30,7 +30,7 @@ const Edit = ({ JWTtoken, ID, postTitle, postContent, postTags }) => {
 
   return (
     <Popup
-      btnTxt={<span class="material-symbols-outlined">edit</span>}
+      btnTxt={<span className="material-symbols-outlined">edit</span>}
       modalTitle="Edit Post"
       handleSubmit={handleEdit}
       submitBtnTxt="SAVE CHANGES"

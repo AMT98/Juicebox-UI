@@ -32,7 +32,7 @@ const AddPost = () => {
   };
   return (
     <Popup
-      btnTxt={<span class="material-symbols-outlined">edit</span>}
+      btnTxt={<span className="material-symbols-outlined">edit</span>}
       modalTitle="Add Post"
       handleSubmit={handleAddPost}
       submitBtnTxt="Create"
