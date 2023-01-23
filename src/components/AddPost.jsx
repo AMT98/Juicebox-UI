@@ -36,6 +36,7 @@ const AddPost = () => {
       modalTitle="Add Post"
       handleSubmit={handleAddPost}
       submitBtnTxt="Create"
+      color="info"
     >
       <form>
         <label>

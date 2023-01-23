@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const Popup = ({
+  color,
   btnTxt,
   modalTitle,
   submitBtnTxt,
@@ -16,7 +17,7 @@ const Popup = ({
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>
+      <Button color={color} onClick={toggle}>
         {btnTxt}
       </Button>
       <Modal isOpen={modal} toggle={toggle}>

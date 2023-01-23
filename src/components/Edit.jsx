@@ -34,6 +34,7 @@ const Edit = ({ JWTtoken, ID, postTitle, postContent, postTags }) => {
       modalTitle="Edit Post"
       handleSubmit={handleEdit}
       submitBtnTxt="SAVE CHANGES"
+      color = "secondary"
     >
       <form className="addForm">
         <h1>Edit The Post</h1>

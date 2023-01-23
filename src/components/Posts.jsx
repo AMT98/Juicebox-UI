@@ -36,12 +36,9 @@ const Posts = () => {
   return (
     <div className="vh-auto">
       <div className="container d-md-flex  justify-content-md-center align-items-md-center my-3">
-        <h1 className="text-white">POSTS</h1>
+        {/* <h1 className="text-white">J</h1> */}
         <form className="m-3">
-          <div className="d-md-flex" style={{ height: "50px" }}>
-            <span className="m-1">
-              <AddPost />
-            </span>
+          <div className="d-md-flex" style={{ height: "50px", width:"40em" }}>
             <input
               className="m-1 form-control"
               style={{ height: "50px" }}
@@ -50,6 +47,9 @@ const Posts = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             ></input>
+            <span className="m-1">
+              <AddPost />
+            </span>
           </div>
         </form>
       </div>
@@ -101,7 +101,7 @@ const Posts = () => {
                     </div>
                     <div
                       className="card text-light bg-dark rounded shadow-lg bounce animated row my-3"
-                      style={{ width: "512px" }}
+                      style={{ width: "570px" }}
                       key={post.id}
                     >
                       <div className="card-body col-lg-7">
@@ -126,7 +126,7 @@ const Posts = () => {
                           </span>
                           {/* buttons */}
                           {token && (
-                            <div className="my-3">
+                            <div className="my-3 flex row">
                               <p
                                 onClick={() => handleDeletePost(post.id, token)}
                               >
@@ -151,6 +151,21 @@ const Posts = () => {
                             </div>
                           )}
                           <hr></hr>
+                          <br />
+                          <div className="mx-3">
+                            <span class="material-symbols-outlined mx-5">
+                              google_plus_reshare
+                            </span>
+                            <span class="material-symbols-outlined mx-5">
+                              maps_ugc
+                            </span>
+                            <span class="material-symbols-outlined mx-5">
+                              repeat
+                            </span>
+                            <span class="material-symbols-outlined mx-5">
+                              favorite
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
