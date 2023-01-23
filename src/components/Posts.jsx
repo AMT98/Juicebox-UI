@@ -36,7 +36,7 @@ const Posts = () => {
   return (
     <div className='vh-auto'>
       <div className='container d-md-flex  justify-content-md-center align-items-md-center my-3'>
-        <h1>POSTS</h1>
+        <h1 className='text-white'>POSTS</h1>
         <form>
           <AddPost />
           <input
@@ -81,7 +81,7 @@ const Posts = () => {
               .map((post) => {
                 return (
                   <div
-                    className='card text-light bg-dark border rounded border-2 shadow-lg bounce animated row'
+                    className='card text-light bg-dark rounded shadow-lg bounce animated row my-3'
                     style={{ width: '512px' }}
                     key={post.id}
                   >
@@ -97,16 +97,20 @@ const Posts = () => {
                           {post.tags[0].name} {post.tags[1].name}
                         </Link>
                       </span>
-                      <button onClick={() => handleDeletePost(post.id, token)}>
-                        Delete
-                      </button>
-                      <Edit
-                        JWTtoken={token}
-                        ID={post.id}
-                        postTitle={post.title}
-                        postContent={post.content}
-                        postTags={(post.tags[0].name, post.tags[1].name)}
-                      />
+                      <div className='my-3'>
+                        <button
+                          onClick={() => handleDeletePost(post.id, token)}
+                        >
+                          Delete
+                        </button>
+                        <Edit
+                          JWTtoken={token}
+                          ID={post.id}
+                          postTitle={post.title}
+                          postContent={post.content}
+                          postTags={(post.tags[0].name, post.tags[1].name)}
+                        />
+                      </div>
                     </div>
                   </div>
                 );

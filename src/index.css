@@ -7,20 +7,21 @@
 .header {
   padding: 30px;
   display: flex;
-  background-color: whitesmoke;
-  color: black;
+  background-color: black;
+  color: white;
   align-items: center;
   justify-content: space-between;
 }
 
 .navLinks {
   text-decoration: none;
-  color: black;
+  color: white;
   margin: 0px 30px;
 }
 .navLinks:hover {
   color: rgb(124, 114, 114);
 }
+
 li {
   list-style-type: none;
 }

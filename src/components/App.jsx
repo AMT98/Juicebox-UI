@@ -11,7 +11,7 @@ import Footer from './Footer';
 
 const App = () => {
   return (
-    <>
+    <body className='bg-black'>
       {/* navbar */}
       <NavBar />
       {/* body */}
@@ -21,13 +21,13 @@ const App = () => {
           <Route path='/posts' element={<Posts />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
-          <Route path= '/add' element= {<AddPost />}/>
-          <Route path='/account' element= {<Account />} />
+          <Route path='/add' element={<AddPost />} />
+          <Route path='/account' element={<Account />} />
         </Routes>
       </div>
       {/* footer */}
       <Footer />
-    </>
+    </body>
   );
 };
 
