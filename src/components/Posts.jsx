@@ -47,7 +47,7 @@ const Posts = () => {
           ></input>
         </form>
       </div>
-      <div className='container d-md-flex justify-content-md-center align-items-md-center my-3'>
+      <div className='container d-md-flex justify-content-md-center align-items-md-center my-3 m-auto'>
         <div className='row'>
           <div className='col'>
             {posts
@@ -80,39 +80,54 @@ const Posts = () => {
               })
               .map((post) => {
                 return (
-                  <div
-                    className='card text-light bg-dark rounded shadow-lg bounce animated row my-3'
-                    style={{ width: '512px' }}
-                    key={post.id}
-                  >
-                    <div>User: {post.author.username}</div>
-                    <div className='card-body' style={{ width: '512px' }}>
-                      <h4 className='card-title'>{post.title}</h4>
-                      <p className='card-text'>{post.content}</p>
-                      <span>
-                        <Link
-                          to={`/tags/${post.tags[0].name}/posts`}
-                          className='text-white-50 text-decoration-none'
-                        >
-                          {post.tags[0].name} {post.tags[1].name}
-                        </Link>
-                      </span>
-                      <div className='my-3'>
-                        <button
-                          onClick={() => handleDeletePost(post.id, token)}
-                        >
-                          Delete
-                        </button>
-                        <Edit
-                          JWTtoken={token}
-                          ID={post.id}
-                          postTitle={post.title}
-                          postContent={post.content}
-                          postTags={(post.tags[0].name, post.tags[1].name)}
-                        />
+                  <section className='row'>
+                    <div
+                      className='col-lg-1 mt-4 mx-5'
+                      style={{ width: '100px' }}
+                    >
+                      <img
+                        className='rounded'
+                        src='https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'
+                        alt=''
+                        width={100}
+                        height={100}
+                      />
+                    </div>
+                    <div
+                      className='card text-light bg-dark rounded shadow-lg bounce animated row my-3'
+                      style={{ width: '512px' }}
+                      key={post.id}
+                    >
+                      <div className='card-body col-lg-7'>
+                        <div style={{ width: '512px' }}>
+                          <h4 className='card-title'>{post.title}</h4>
+                          <p className='card-text'>{post.content}</p>
+                          <span>
+                            <Link
+                              to={`/tags/${post.tags[0].name}/posts`}
+                              className='text-white-50 text-decoration-none'
+                            >
+                              {post.tags[0].name} {post.tags[1].name}
+                            </Link>
+                          </span>
+                          <div className='my-3'>
+                            <button
+                              onClick={() => handleDeletePost(post.id, token)}
+                            >
+                              Delete
+                            </button>
+                            <Edit
+                              JWTtoken={token}
+                              ID={post.id}
+                              postTitle={post.title}
+                              postContent={post.content}
+                              postTags={(post.tags[0].name, post.tags[1].name)}
+                            />
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </section>
                 );
               })}
           </div>
