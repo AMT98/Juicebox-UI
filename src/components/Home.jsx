@@ -21,8 +21,14 @@ const Home = () => {
                   <a className='btn btn-outline-light px-5 m-2' href='/login'>
                     Login
                   </a>
-                  <a className='btn btn-outline-light px-5' href='/register'>
+                  <a
+                    className='btn btn-outline-light px-5 m-2'
+                    href='/register'
+                  >
                     Register
+                  </a>
+                  <a className='btn btn-outline-light px-5 m-2' href='/posts'>
+                    Posts
                   </a>
                 </span>
               </div>
