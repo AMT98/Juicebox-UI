@@ -64,14 +64,18 @@ const Posts = () => {
                 ) {
                   return value;
                 }
-                //  else if (
-                //   value.location
-                //     .toLowerCase()
-                //     .includes(searchTerm.toLowerCase())
-                // ) 
-                // {
-                //   return value;
-                // }
+                 else if (
+                  value.tags[0].name
+                    .toLowerCase()
+                    .includes(searchTerm.toLowerCase())
+                ) 
+                {
+                  return value;
+                }else if(
+                  value.tags[1].name.toLowerCase().includes(searchTerm.toLowerCase())
+                ){
+                  return value;
+                }
               })
               .map((post) => {
                 return (
