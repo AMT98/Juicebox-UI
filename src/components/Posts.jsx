@@ -38,12 +38,13 @@ const Posts = () => {
       <div className='container d-md-flex  justify-content-md-center align-items-md-center my-3'>
         <h1 className='text-white'>POSTS</h1>
         <form className='m-3'>
-          <div className='d-md-flex'>
+          <div className='d-md-flex' style={{ height: '50px' }}>
             <span className='m-1'>
               <AddPost />
             </span>
             <input
-              className='m-1'
+              className='m-1 form-control'
+              style={{ height: '50px' }}
               type='search'
               placeholder='Search'
               value={searchTerm}
