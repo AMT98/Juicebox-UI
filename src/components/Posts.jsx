@@ -84,6 +84,7 @@ const Posts = () => {
                     style={{ width: "512px" }}
                     key={post.id}
                     >
+                      <div>User: {post.author.username}</div>
                     <div className="card-body" style={{ width: "512px" }}>
                       <h4 className="card-title">{post.title}</h4>
                       <p className="card-text">{post.content}</p>
