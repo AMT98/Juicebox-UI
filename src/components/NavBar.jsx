@@ -45,9 +45,20 @@ const NavBar = () => {
             </DropdownToggle>
             <DropdownMenu start={getValue.toString()}>
               <>
-                <DropdownItem className=".bg-secondary">
+                <DropdownItem className="bg-secondary">
                   <NavLink to="/account">Account</NavLink>
-                  <span className="mx-1">Log Out</span>
+                </DropdownItem>
+                <DropdownItem>
+                  <span class="material-symbols-outlined">favorite</span>
+                  <span className="mx-2">Likes</span>
+                </DropdownItem>
+                <DropdownItem>
+                  <span class="material-symbols-outlined">person_add</span>
+                  <span className="mx-2">Following</span>
+                </DropdownItem>
+                <DropdownItem>
+                  <span class="material-symbols-outlined">help</span>
+                  <span className="mx-2">Help</span>
                 </DropdownItem>
                 <DropdownItem>
                   <NavLink to="/login">Log In</NavLink>
@@ -59,8 +70,7 @@ const NavBar = () => {
             </DropdownMenu>
           </UncontrolledDropdown>
           <div className="mx-4">
-
-          < AddPost />
+            <AddPost />
           </div>
         </Collapse>
       </Navbar>

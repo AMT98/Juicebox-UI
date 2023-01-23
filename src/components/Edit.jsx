@@ -34,40 +34,36 @@ const Edit = ({ JWTtoken, ID, postTitle, postContent, postTags }) => {
       modalTitle="Edit Post"
       handleSubmit={handleEdit}
       submitBtnTxt="SAVE CHANGES"
-      color = "secondary"
+      color="secondary"
     >
       <form className="addForm">
-        <h1>Edit The Post</h1>
-        <label>
-          <input
-            className="addInput"
-            type="text"
-            placeholder="Title*"
-            required
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          ></input>
-        </label>
-        <label>
-          <input
-            className="addInput"
-            type="text"
-            placeholder="Description*"
-            required
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          ></input>
-        </label>
-        <label>
-          <input
-            className="addInput"
-            type="text"
-            placeholder="Price*"
-            required
-            value={tags}
-            onChange={(e) => setTags(e.target.value)}
-          ></input>
-        </label>
+        <label>Title:</label>
+        <input
+          className="addInput"
+          type="text"
+          placeholder="Title*"
+          required
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        ></input>
+        <label>Content:</label>
+        <input
+          className="addInput"
+          type="text"
+          placeholder="Description*"
+          required
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        ></input>
+        <label>Tags:</label>
+        <input
+          className="addInput"
+          type="text"
+          placeholder="Price*"
+          required
+          value={tags}
+          onChange={(e) => setTags(e.target.value)}
+        ></input>
       </form>
     </Popup>
   );

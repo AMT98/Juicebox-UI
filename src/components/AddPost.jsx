@@ -38,39 +38,33 @@ const AddPost = () => {
       submitBtnTxt="Create"
       color="info"
     >
-      <form>
-        <label>
-          title:
-          <input
-            type="text"
-            name="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          ></input>
-        </label>
+      <form className="addForm">
+        <label>Title:</label>
+        <input
+          type="text"
+          name="title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        ></input>
 
-        <label>
-          Content:
-          <textarea
-            type="text"
-            name="content"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            required
-          ></textarea>
-        </label>
+        <label>Content:</label>
+        <textarea
+          type="text"
+          name="content"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          required
+        ></textarea>
 
-        <label>
-          Tags:
-          <input
-            type="text"
-            name="tags"
-            value={tags}
-            onChange={(e) => setTags(e.target.value)}
-            required
-          ></input>
-        </label>
+        <label>Tags:</label>
+        <input
+          type="text"
+          name="tags"
+          value={tags}
+          onChange={(e) => setTags(e.target.value)}
+          required
+        ></input>
         {/* 
       <label>
         Image:

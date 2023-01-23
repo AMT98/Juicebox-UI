@@ -29,3 +29,8 @@ li {
 a {
   text-decoration: none;
 }
+
+.addForm {
+  display: flex;
+  flex-direction: column;
+}
