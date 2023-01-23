@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { fetchAllPosts, fetchDeletePost } from "../api/api";
-import AddPost from "./AddPost";
-import Edit from "./Edit";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { fetchAllPosts, fetchDeletePost } from '../api/api';
+import AddPost from './AddPost';
+import Edit from './Edit';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const token = localStorage.getItem("token");
+  const [searchTerm, setSearchTerm] = useState('');
+  const token = localStorage.getItem('token');
 
   const fetchPosts = async () => {
     try {
@@ -14,7 +15,7 @@ const Posts = () => {
       console.log(post);
       setPosts(post);
     } catch (error) {
-      console.error("error in post fetchpost", error);
+      console.error('error in post fetchpost', error);
     }
   };
 
@@ -24,7 +25,7 @@ const Posts = () => {
       console.log(deletePost);
       fetchPosts();
     } catch (error) {
-      console.error("error in post delete fn", error);
+      console.error('error in post delete fn', error);
     }
   };
 
@@ -33,73 +34,78 @@ const Posts = () => {
   }, []);
 
   return (
-    <div className="vh-auto">
-      <div className="container d-md-flex  justify-content-md-center align-items-md-center my-3">
+    <div className='vh-auto'>
+      <div className='container d-md-flex  justify-content-md-center align-items-md-center my-3'>
         <h1>POSTS</h1>
         <form>
           <AddPost />
           <input
-            type="search"
-            placeholder="Search"
+            type='search'
+            placeholder='Search'
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           ></input>
         </form>
       </div>
-      <div className="container d-md-flex justify-content-md-center align-items-md-center my-3">
-        <div className="row">
-          <div className="col">
+      <div className='container d-md-flex justify-content-md-center align-items-md-center my-3'>
+        <div className='row'>
+          <div className='col'>
             {posts
               .filter((value) => {
-                if (searchTerm === "") {
+                if (searchTerm === '') {
                   return value;
                 } else if (
-                  value.author.username.toLowerCase().includes(searchTerm.toLowerCase())
-                ) {
-                  return value;
-                } else if (
-                  value.content
+                  value.author.username
                     .toLowerCase()
                     .includes(searchTerm.toLowerCase())
                 ) {
                   return value;
-                }
-                 else if (
+                } else if (
+                  value.content.toLowerCase().includes(searchTerm.toLowerCase())
+                ) {
+                  return value;
+                } else if (
                   value.tags[0].name
                     .toLowerCase()
                     .includes(searchTerm.toLowerCase())
-                ) 
-                {
+                ) {
                   return value;
-                }else if(
-                  value.tags[1].name.toLowerCase().includes(searchTerm.toLowerCase())
-                ){
+                } else if (
+                  value.tags[1].name
+                    .toLowerCase()
+                    .includes(searchTerm.toLowerCase())
+                ) {
                   return value;
                 }
               })
               .map((post) => {
                 return (
                   <div
-                    className="card text-light bg-dark border rounded border-2 shadow-lg bounce animated row"
-                    style={{ width: "512px" }}
+                    className='card text-light bg-dark border rounded border-2 shadow-lg bounce animated row'
+                    style={{ width: '512px' }}
                     key={post.id}
-                    >
-                      <div>User: {post.author.username}</div>
-                    <div className="card-body" style={{ width: "512px" }}>
-                      <h4 className="card-title">{post.title}</h4>
-                      <p className="card-text">{post.content}</p>
-                      <p className="text-white-50">
-                        {post.tags[0].name} {post.tags[1].name}
-                      </p>
+                  >
+                    <div>User: {post.author.username}</div>
+                    <div className='card-body' style={{ width: '512px' }}>
+                      <h4 className='card-title'>{post.title}</h4>
+                      <p className='card-text'>{post.content}</p>
+                      <span>
+                        <Link
+                          to={`/tags/${post.tags[0].name}/posts`}
+                          className='text-white-50 text-decoration-none'
+                        >
+                          {post.tags[0].name} {post.tags[1].name}
+                        </Link>
+                      </span>
                       <button onClick={() => handleDeletePost(post.id, token)}>
                         Delete
                       </button>
-                      <Edit 
-                      JWTtoken = {token}
-                      ID = {post.id}
-                      postTitle = {post.title}
-                      postContent = {post.content}
-                      postTags = {(post.tags[0].name , post.tags[1].name)}
+                      <Edit
+                        JWTtoken={token}
+                        ID={post.id}
+                        postTitle={post.title}
+                        postContent={post.content}
+                        postTags={(post.tags[0].name, post.tags[1].name)}
                       />
                     </div>
                   </div>
