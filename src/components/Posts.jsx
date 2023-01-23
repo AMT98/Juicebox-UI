@@ -31,7 +31,7 @@ const Posts = () => {
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [token]);
 
   return (
     <div className='vh-auto'>
@@ -110,20 +110,25 @@ const Posts = () => {
                               {post.tags[0].name} {post.tags[1].name}
                             </Link>
                           </span>
-                          <div className='my-3'>
-                            <button
-                              onClick={() => handleDeletePost(post.id, token)}
-                            >
-                              Delete
-                            </button>
-                            <Edit
-                              JWTtoken={token}
-                              ID={post.id}
-                              postTitle={post.title}
-                              postContent={post.content}
-                              postTags={(post.tags[0].name, post.tags[1].name)}
-                            />
-                          </div>
+                          {/* buttons */}
+                          {!token && (
+                            <div className='my-3'>
+                              <button
+                                onClick={() => handleDeletePost(post.id, token)}
+                              >
+                                Delete
+                              </button>
+                              <Edit
+                                JWTtoken={token}
+                                ID={post.id}
+                                postTitle={post.title}
+                                postContent={post.content}
+                                postTags={
+                                  (post.tags[0].name, post.tags[1].name)
+                                }
+                              />
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
