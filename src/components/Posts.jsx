@@ -3,10 +3,11 @@ import { fetchAllPosts, fetchDeletePost } from "../api/api";
 import AddPost from "./AddPost";
 import Edit from "./Edit";
 
-const token = localStorage.getItem("token");
 const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const token = localStorage.getItem("token");
+
   const fetchPosts = async () => {
     try {
       const post = await fetchAllPosts();
@@ -78,9 +79,9 @@ const Posts = () => {
                     className="card text-light bg-dark border rounded border-2 shadow-lg bounce animated col"
                     style={{ width: "512px" }}
                     key={post.id}
-                  >
+                    >
                     <div className="card-body" style={{ width: "512px" }}>
-                      <h4 className="card-title">{post.author.username}</h4>
+                      <h4 className="card-title">{post.title}</h4>
                       <p className="card-text">{post.content}</p>
                       <p className="text-white-50">
                         {post.tags[0].name} {post.tags[1].name}
