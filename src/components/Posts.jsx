@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { fetchAllPosts, fetchDeletePost } from "../api/api";
 import AddPost from "./AddPost";
+import DeletePost from "./DeletePost";
 import Edit from "./Edit";
 
 const Posts = () => {
@@ -19,15 +20,6 @@ const Posts = () => {
     }
   };
 
-  const handleDeletePost = async (postID, token) => {
-    try {
-      const deletePost = await fetchDeletePost(postID, token);
-      console.log(deletePost);
-      fetchPosts();
-    } catch (error) {
-      console.error("error in post delete fn", error);
-    }
-  };
 
   useEffect(() => {
     fetchPosts();
@@ -38,7 +30,7 @@ const Posts = () => {
       <div className="container d-md-flex  justify-content-md-center align-items-md-center my-3">
         {/* <h1 className="text-white">J</h1> */}
         <form className="m-3">
-          <div className="d-md-flex" style={{ height: "50px", width:"40em" }}>
+          <div className="d-md-flex" style={{ height: "50px", width: "40em" }}>
             <input
               className="m-1 form-control"
               style={{ height: "50px" }}
@@ -126,14 +118,13 @@ const Posts = () => {
                           </span>
                           {/* buttons */}
                           {token && (
-                            <div className="my-3 flex row">
-                              <p
-                                onClick={() => handleDeletePost(post.id, token)}
+                            <div className="m-3 ">
+                              <DeletePost
+                               postID = {post.id}
+                               token = {token}
                               >
-                                <span class="material-symbols-outlined">
-                                  delete
-                                </span>
-                              </p>
+                               
+                              </DeletePost>
                               <Edit
                                 JWTtoken={token}
                                 ID={post.id}
@@ -143,10 +134,6 @@ const Posts = () => {
                                   (post.tags[0].name, post.tags[1].name)
                                 }
                               >
-                                {" "}
-                                <span class="material-symbols-outlined">
-                                  edit
-                                </span>
                               </Edit>
                             </div>
                           )}
