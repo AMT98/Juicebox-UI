@@ -34,3 +34,8 @@ a {
   display: flex;
   flex-direction: column;
 }
+.editDeleteBtn{
+  display: flex;
+  padding-left: 75%;
+
+}

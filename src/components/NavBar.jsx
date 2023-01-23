@@ -24,7 +24,11 @@ const NavBar = () => {
   return (
     <div>
       <Navbar expand={"xl"} className="header mx-5">
-        <NavbarBrand className="headerTitle text-white">Juicebox</NavbarBrand>
+        <NavbarBrand className="headerTitle">
+          <NavLink className="navLinks" to="./posts">
+            Juicebox
+          </NavLink>
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto " navbar></Nav>

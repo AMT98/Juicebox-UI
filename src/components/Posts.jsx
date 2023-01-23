@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { fetchAllPosts, fetchDeletePost } from "../api/api";
+import { fetchAllPosts } from "../api/api";
 import AddPost from "./AddPost";
 import DeletePost from "./DeletePost";
 import Edit from "./Edit";
@@ -20,7 +20,6 @@ const Posts = () => {
     }
   };
 
-
   useEffect(() => {
     fetchPosts();
   }, [token]);
@@ -30,12 +29,12 @@ const Posts = () => {
       <div className="container d-md-flex  justify-content-md-center align-items-md-center my-3">
         {/* <h1 className="text-white">J</h1> */}
         <form className="m-3">
-          <div className="d-md-flex" style={{ height: "50px", width: "40em" }}>
+          <div className="d-md-flex" style={{ height: "50px", width: "55em" }}>
             <input
               className="m-1 form-control"
               style={{ height: "50px" }}
               type="search"
-              placeholder="Search"
+              placeholder="Search Juicebox"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             ></input>
@@ -118,13 +117,11 @@ const Posts = () => {
                           </span>
                           {/* buttons */}
                           {token && (
-                            <div className="m-3 ">
+                            <div className="m-3 editDeleteBtn ">
                               <DeletePost
-                               postID = {post.id}
-                               token = {token}
-                              >
-                               
-                              </DeletePost>
+                                postID={post.id}
+                                token={token}
+                              ></DeletePost>
                               <Edit
                                 JWTtoken={token}
                                 ID={post.id}
@@ -133,8 +130,7 @@ const Posts = () => {
                                 postTags={
                                   (post.tags[0].name, post.tags[1].name)
                                 }
-                              >
-                              </Edit>
+                              ></Edit>
                             </div>
                           )}
                           <hr></hr>
