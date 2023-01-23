@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchAllPosts, fetchDeletePost } from "../api/api";
 import AddPost from "./AddPost";
+import Edit from "./Edit";
 
 const token = localStorage.getItem("token");
 const Posts = () => {
@@ -87,6 +88,13 @@ const Posts = () => {
                       <button onClick={() => handleDeletePost(post.id, token)}>
                         Delete
                       </button>
+                      <Edit 
+                      JWTtoken = {token}
+                      ID = {post.id}
+                      postTitle = {post.title}
+                      postContent = {post.content}
+                      postTags = {(post.tags[0].name , post.tags[1].name)}
+                      />
                     </div>
                   </div>
                 );
