@@ -110,9 +110,15 @@ const Posts = () => {
                           <span>
                             <Link
                               to={`/tags/${post.tags[0].name}/posts`}
-                              className='text-white-50 text-decoration-none'
+                              className='text-white-50 text-decoration-none m-1'
                             >
-                              {post.tags[0].name} {post.tags[1].name}
+                              {post.tags[0].name}
+                            </Link>
+                            <Link
+                              to={`/tags/${post.tags[1].name}/posts`}
+                              className='text-white-50 text-decoration-none m-1'
+                            >
+                              {post.tags[1].name}
                             </Link>
                           </span>
                           {/* buttons */}
