@@ -33,8 +33,8 @@ const Posts = () => {
   }, []);
 
   return (
-    <div className="vh-100">
-      <div className="container d-md-flex justify-content-md-center align-items-md-center my-3">
+    <div className="vh-auto">
+      <div className="container d-md-flex  justify-content-md-center align-items-md-center my-3">
         <h1>POSTS</h1>
         <form>
           <AddPost />
@@ -80,7 +80,7 @@ const Posts = () => {
               .map((post) => {
                 return (
                   <div
-                    className="card text-light bg-dark border rounded border-2 shadow-lg bounce animated col"
+                    className="card text-light bg-dark border rounded border-2 shadow-lg bounce animated row"
                     style={{ width: "512px" }}
                     key={post.id}
                     >
