@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, {useState} from 'react';
 import { fetchRegister } from '../api/api';
 import { Link } from 'react-router-dom';
 

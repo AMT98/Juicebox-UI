@@ -33,7 +33,7 @@ const Posts = () => {
   }, []);
 
   return (
-    <div>
+    <div className="vh-100">
       <div className="container d-md-flex justify-content-md-center align-items-md-center my-3">
         <h1>POSTS</h1>
         <form>
