@@ -37,14 +37,19 @@ const Posts = () => {
     <div className='vh-auto'>
       <div className='container d-md-flex  justify-content-md-center align-items-md-center my-3'>
         <h1 className='text-white'>POSTS</h1>
-        <form>
-          <AddPost />
-          <input
-            type='search'
-            placeholder='Search'
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          ></input>
+        <form className='m-3'>
+          <div className='d-md-flex'>
+            <span className='m-1'>
+              <AddPost />
+            </span>
+            <input
+              className='m-1'
+              type='search'
+              placeholder='Search'
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            ></input>
+          </div>
         </form>
       </div>
       <div className='container d-md-flex justify-content-md-center align-items-md-center my-3 m-auto'>
