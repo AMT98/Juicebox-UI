@@ -5,10 +5,8 @@ import { fetchEditPost } from "../api/api";
 const Edit = ({ JWTtoken, ID, postTitle, postContent, postTags }) => {
   const [title, setTitle] = useState(postTitle);
   const [content, setContent] = useState(postContent);
-  const [tags, setTags] = useState(
-    postTags
-  );
-  const [postID, setPostID] = useState(ID)
+  const [tags, setTags] = useState(postTags);
+  const [postID, setPostID] = useState(ID);
 
   const handleEdit = async (e) => {
     e.preventDefault();
@@ -17,7 +15,13 @@ const Edit = ({ JWTtoken, ID, postTitle, postContent, postTags }) => {
     setTags("");
 
     try {
-      const editPost = await fetchEditPost(JWTtoken, postID, title, content, tags);
+      const editPost = await fetchEditPost(
+        JWTtoken,
+        postID,
+        title,
+        content,
+        tags
+      );
       console.log(editPost);
     } catch (error) {
       console.log(error);
@@ -26,7 +30,7 @@ const Edit = ({ JWTtoken, ID, postTitle, postContent, postTags }) => {
 
   return (
     <Popup
-      btnTxt="Edit Your Post"
+      btnTxt={<span class="material-symbols-outlined">edit</span>}
       modalTitle="Edit Post"
       handleSubmit={handleEdit}
       submitBtnTxt="SAVE CHANGES"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Collapse,
   Navbar,
@@ -10,10 +10,11 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-} from 'reactstrap';
-import { getValue } from '@testing-library/user-event/dist/utils';
+} from "reactstrap";
+import { getValue } from "@testing-library/user-event/dist/utils";
 
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
+import AddPost from "./AddPost";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,42 +23,44 @@ const NavBar = () => {
 
   return (
     <div>
-      <Navbar expand={'xl'} className='header'>
-        <NavbarBrand className='headerTitle text-white'>Juicebox</NavbarBrand>
+      <Navbar expand={"xl"} className="header mx-5">
+        <NavbarBrand className="headerTitle text-white">Juicebox</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className='me-auto' navbar></Nav>
+          <Nav className="me-auto " navbar></Nav>
           <NavItem>
-            <NavLink className='navLinks' to='/'>
-              HOME
+            <NavLink className="navLinks" to="/">
+              <span class="material-symbols-outlined">home</span>
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink className='navLinks' to='/posts'>
+            <NavLink className="navLinks" to="/posts">
               POSTS
             </NavLink>
           </NavItem>
 
-          <UncontrolledDropdown nav inNavbar className='profileNav'>
+          <UncontrolledDropdown nav inNavbar className="profileNav">
             <DropdownToggle nav caret>
-              PROFILE
+              <span class="material-symbols-outlined">person</span>
             </DropdownToggle>
             <DropdownMenu start={getValue.toString()}>
               <>
                 <DropdownItem>
-                  <NavLink to='/account'>Account</NavLink>
+                  <NavLink to="/account">Account</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                  <NavLink to='/login'>Log In</NavLink>
+                  <NavLink to="/login">Log In</NavLink>
                 </DropdownItem>
                 <DropdownItem>
-                  <NavLink to='/register'>Sign Up</NavLink>
+                  <NavLink to="/register">Sign Up</NavLink>
                 </DropdownItem>
               </>
             </DropdownMenu>
           </UncontrolledDropdown>
+          < AddPost />
         </Collapse>
       </Navbar>
+      <hr></hr>
     </div>
   );
 };
