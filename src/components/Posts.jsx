@@ -25,19 +25,20 @@ const Posts = () => {
   }, [token]);
 
   return (
-    <div className="vh-auto">
+    <div className="min-vh-100">
       <div className="container d-md-flex  justify-content-md-center align-items-md-center my-3">
         {/* <h1 className="text-white">J</h1> */}
         <form className="m-3">
-          <div className="d-md-flex" style={{ height: "50px", width: "55em" }}>
+          <div className="d-md-flex text-white" style={{ height: "50px", width: "55em" }}>
             <input
-              className="m-1 form-control"
+              className="m-1 form-control text-white bg-secondary"
               style={{ height: "50px" }}
               type="search"
               placeholder="Search Juicebox"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             ></input>
+
             <span className="m-1">
               <AddPost />
             </span>

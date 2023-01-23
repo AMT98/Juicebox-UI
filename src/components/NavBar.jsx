@@ -39,7 +39,7 @@ const NavBar = () => {
           </NavItem>
           <NavItem>
             <NavLink className="navLinks" to="/posts">
-              POSTS
+              <span class="material-symbols-outlined">explore</span>
             </NavLink>
           </NavItem>
 
