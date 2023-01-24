@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { fetchLogin } from '../api/api';
 import { Link } from 'react-router-dom';
-
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [token, setToken] = useState(localStorage.getItem('token'))
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +18,7 @@ const Login = () => {
         console.log(login.token);
         setErrorMessage(login.message);
         localStorage.setItem('token', login.token);
+        window.location.reload()
       }
     } catch (error) {
       console.error('error in login', error);
@@ -30,6 +31,7 @@ const Login = () => {
           <div className='col-12 col-md-8 col-lg-6 col-xl-5'>
             <div className='card bg-dark text-white'>
               <div className='card-body p-5 text-center'>
+                  {!token ? 
                 <div className='mb-3'>
                   <h2 className='fw-bold mb-2 text-uppercase'>Juicebox</h2>
                   <p className='text-white-50 mb-5'>
@@ -64,7 +66,7 @@ const Login = () => {
                         Login
                       </button>
                     </span>
-                    <p className='my-2 text-danger'>{errorMessage}</p>
+                    {/* <p className='my-2 text-danger'>{errorMessage}</p> */}
                   </form>
                   <div>
                     <p className='mb-0'>
@@ -75,6 +77,12 @@ const Login = () => {
                     </p>
                   </div>
                 </div>
+                    :
+                    <>
+                    <h1>You're logged in!</h1>
+                    <p>Please navigate to posts.</p>
+                    </>
+                    }
               </div>
             </div>
           </div>
