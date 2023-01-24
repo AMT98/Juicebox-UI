@@ -22,6 +22,10 @@ const NavBar = () => {
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const handleLogOut = () => {
+    localStorage.removeItem('token')
+    window.location.reload()
+  }
   return (
     <div>
       <Navbar expand={"xl"} className="header mx-5">
@@ -69,10 +73,7 @@ const NavBar = () => {
                     <span className="mx-2">Help</span>
                   </DropdownItem>
                   <DropdownItem>
-                    <NavLink to="/login">Log In</NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink to="/register">Sign Up</NavLink>
+                    <span onClick={handleLogOut} >Log Out</span>
                   </DropdownItem>
                 </>
               </DropdownMenu>
