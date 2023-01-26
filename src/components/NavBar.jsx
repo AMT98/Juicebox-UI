@@ -24,7 +24,7 @@ const NavBar = () => {
 
   const handleLogOut = () => {
     localStorage.removeItem('token')
-    window.location.reload()
+    window.location="./"
   }
   return (
     <div>
