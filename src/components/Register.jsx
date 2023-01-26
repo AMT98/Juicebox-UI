@@ -20,6 +20,8 @@ const Register = () => {
       const register = await fetchRegister(username, password, name, location);
       if (!register.success) {
         setErrorMessage(register.message);
+      }else{
+        window.location="/login"
       }
     } catch (error) {
       console.error('error in register fetechregister', error);
@@ -51,7 +53,7 @@ const Register = () => {
                   <div className='form-outline form-white mb-4'>
                     <input
                       className='form-control form-control-lg'
-                      type='text'
+                      type='password'
                       name='password'
                       value={password}
                       placeholder='Password'

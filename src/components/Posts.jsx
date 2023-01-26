@@ -30,21 +30,21 @@ const Posts = () => {
         {/* <h1 className="text-white">J</h1> */}
         <form className='m-3'>
           <div
-            className='d-md-flex text-white'
-            style={{ height: '50px', width: '55em' }}
+            className='d-md-flex text-white searchBar'
+            style={{ height: '50px', width: '30em' }}
           >
             <input
-              className='m-1 form-control text-white bg-secondary'
+              className='form-control text-white '
               style={{ height: '50px' }}
               type='search'
               placeholder='Search Juicebox'
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             ></input>
-
+            {token ?
             <span className='m-1'>
               <AddPost />
-            </span>
+            </span> : null }
           </div>
         </form>
       </div>

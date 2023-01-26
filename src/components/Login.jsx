@@ -18,7 +18,7 @@ const Login = () => {
         console.log(login.token);
         setErrorMessage(login.message);
         localStorage.setItem('token', login.token);
-        window.location="/posts"
+        window.location="/"
       }
     } catch (error) {
       console.error('error in login', error);

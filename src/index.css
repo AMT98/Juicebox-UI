@@ -7,7 +7,7 @@
 .header {
   padding: 30px;
   display: flex;
-  background-color: black;
+  /* background-color: black; */
   color: white;
   align-items: center;
   justify-content: space-between;
@@ -53,4 +53,11 @@ a {
     border-radius: 5px;
     font-weight: 500;
     color: black;
+  }
+
+  .searchBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 6.5rem;
   }
