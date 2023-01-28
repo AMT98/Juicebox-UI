@@ -46,7 +46,7 @@ const Posts = () => {
             style={{ height: '50px', width: '30em' }}
           >
             <input
-              className='form-control text-white '
+              className='form-control text-black '
               style={{ height: '50px' }}
               type='search'
               placeholder='Search Juicebox'
