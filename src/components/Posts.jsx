@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchAllPosts } from '../api/api';
+import { fetchAllPosts, fetchAllUsers } from '../api/api';
 import AddPost from './AddPost';
 import DeletePost from './DeletePost';
 import Edit from './Edit';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
+  const [users, setUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const token = localStorage.getItem('token');
 
@@ -20,8 +21,19 @@ const Posts = () => {
     }
   };
 
+  const fetchUsers = async () => {
+    try {
+      const user = await fetchAllUsers();
+      console.log(user);
+      setUsers(user);
+    } catch (error) {
+      console.error('error in post fetchuser', error);
+    }
+  };
+
   useEffect(() => {
     fetchPosts();
+    fetchUsers();
   }, []);
 
   return (
@@ -41,10 +53,11 @@ const Posts = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             ></input>
-            {token ?
-            <span className='m-1'>
-              <AddPost />
-            </span> : null }
+            {token ? (
+              <span className='m-1'>
+                <AddPost />
+              </span>
+            ) : null}
           </div>
         </form>
       </div>
@@ -86,13 +99,29 @@ const Posts = () => {
                       className='col-lg-1 mt-4 mx-5'
                       style={{ width: '100px' }}
                     >
-                      <img
+                      {users.map((user) => {
+                        // console.log(user.avatar);
+                        if (user.id === post.author.id) {
+                          console.log(post.author.id);
+                          console.log(user.avatar);
+                          return (
+                            <img
+                              className='rounded'
+                              src={user.avatar}
+                              alt=''
+                              width={100}
+                              height={100}
+                            />
+                          );
+                        }
+                      })}
+                      {/* <img
                         className='rounded'
-                        src='https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'
+                        src='https://tinyurl.com/4ed5r99s'
                         alt=''
                         width={100}
                         height={100}
-                      />
+                      /> */}
                     </div>
                     <div
                       className='card text-light bg-dark rounded shadow-lg bounce animated row my-3'

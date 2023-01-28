@@ -15,7 +15,7 @@ export const fetchAllPosts = async () => {
 export const fetchAllUsers = async () => {
   const res = await fetch(`${APIURL}/users`);
   const json = await res.json();
-  return json;
+  return json.users;
 };
 
 // get post by tags
@@ -26,7 +26,13 @@ export const fetchPostByTags = async (tagName) => {
 };
 
 // register user
-export const fetchRegister = async (username, password, name, location) => {
+export const fetchRegister = async (
+  username,
+  password,
+  name,
+  location,
+  avatar
+) => {
   const res = await fetch(`${APIURL}/users/register`, {
     method: 'POST',
     headers: {
@@ -37,6 +43,7 @@ export const fetchRegister = async (username, password, name, location) => {
       password: `${password}`,
       name: `${name}`,
       location: `${location}`,
+      avatar: `${avatar}`,
     }),
   });
   const json = await res.json();
@@ -81,10 +88,9 @@ export const fetchAddPost = async (token, title, content, tags) => {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-        title: `${title}`,
-        content: `${content}`,
-        tags: `${tags}`,
-      
+      title: `${title}`,
+      content: `${content}`,
+      tags: `${tags}`,
     }),
   });
   const json = await res.json();
@@ -111,17 +117,18 @@ export const fetchEditPost = async (token, postID, title, content, tags) => {
 
 // delete/deactivate post
 export const fetchDeletePost = async (token, postID) => {
-  try{const res = await fetch(`${APIURL}/posts/${postID}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  const json = await res.json();
-  return json;}
-  catch(error){
-    console.log(error)
+  try {
+    const res = await fetch(`${APIURL}/posts/${postID}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const json = await res.json();
+    return json;
+  } catch (error) {
+    console.log(error);
   }
 };
 

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { fetchRegister } from '../api/api';
 import { Link } from 'react-router-dom';
 
@@ -7,6 +7,7 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
+  const [avatar, setAvatar] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e) => {
@@ -17,11 +18,17 @@ const Register = () => {
     setLocation('');
 
     try {
-      const register = await fetchRegister(username, password, name, location);
+      const register = await fetchRegister(
+        username,
+        password,
+        name,
+        location,
+        avatar
+      );
       if (!register.success) {
         setErrorMessage(register.message);
-      }else{
-        window.location="/login"
+      } else {
+        window.location = '/login';
       }
     } catch (error) {
       console.error('error in register fetechregister', error);
@@ -80,6 +87,17 @@ const Register = () => {
                       value={location}
                       placeholder='Location'
                       onChange={(e) => setLocation(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className='form-outline form-white mb-4'>
+                    <input
+                      className='form-control form-control-lg'
+                      type='text'
+                      name='location'
+                      value={avatar}
+                      placeholder='Avatar URL'
+                      onChange={(e) => setAvatar(e.target.value)}
                       required
                     />
                   </div>
