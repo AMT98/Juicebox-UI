@@ -16,6 +16,7 @@ const Register = () => {
     setPassword('');
     setName('');
     setLocation('');
+    setAvatar('https://tinyurl.com/2p82ydm4');
 
     try {
       const register = await fetchRegister(
