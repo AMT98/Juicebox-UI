@@ -17,16 +17,10 @@ const Footer = () => (
           <h5 className='text-uppercase text-white'>Vincent's Socials</h5>
           <ul className='list-unstyled'>
             <li>
-              <a href='#!'>Github</a>
+              <a href='https://github.com/vincentpalomo'>Github</a>
             </li>
             <li>
               <a href='#!'>LinkedIn</a>
-            </li>
-            <li>
-              <a href='#!'>Link 3</a>
-            </li>
-            <li>
-              <a href='#!'>Link 4</a>
             </li>
           </ul>
         </div>
@@ -35,16 +29,10 @@ const Footer = () => (
           <h5 className='text-uppercase text-white'>Aswin's Socials</h5>
           <ul className='list-unstyled'>
             <li>
-              <a href='#!'>Github</a>
+              <a href='https://github.com/AMT98'>Github</a>
             </li>
             <li>
               <a href='#!'>LinkedIn</a>
-            </li>
-            <li>
-              <a href='#!'>Link 3</a>
-            </li>
-            <li>
-              <a href='#!'>Link 4</a>
             </li>
           </ul>
         </div>
